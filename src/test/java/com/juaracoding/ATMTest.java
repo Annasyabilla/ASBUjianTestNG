@@ -17,6 +17,7 @@ import org.testng.annotations.Test;
 public class ATMTest {
     ATM atm;
 
+
     @BeforeMethod
     public void setUp() {
         atm = new ATM(1000);
@@ -32,6 +33,7 @@ public class ATMTest {
     @Test
     public void testSetorUang() {
         atm.setorUang(5000);
+        Assert.assertEquals(atm.lihatSaldo(),6000);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class)
@@ -42,6 +44,7 @@ public class ATMTest {
     @Test
     public void testTarikUang(){
         atm.tarikUang(200);
+        Assert.assertEquals(atm.lihatSaldo(),800);
     }
 
     @Test (expectedExceptions = IllegalArgumentException.class)
